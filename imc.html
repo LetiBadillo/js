@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculadora IMC</title> 
+    <!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+		<script> 
+		
+		function calcularIMC(){
+
+		var peso = parseFloat(document.getElementById("peso").value); 
+		var estatura = parseFloat(document.getElementById("estatura").value); 
+        var e= Math.pow(estatura, 2);
+        var total=peso/e;
+		clasificarIMC(total);
+		}
+
+
+		function clasificarIMC(imc){
+			/*menor a 8, peso bajo. entre 18 y 24.9 normal. Entre 25 y 26.9 sobrepeso, más de 27 obesidad*/
+			var r;
+			if(imc<18){
+			r="IMC= "+imc+" \nPeso bajo.";
+			}
+			if(imc>= 18 && imc <= 24.9){
+				r="IMC= "+imc+" \nPeso normal.";}
+			
+			if (25 <= imc && imc <=26.9){
+				r="IMC= "+imc+" \nSobrepeso.";	}
+			
+			if(imc>27){
+				r="IMC= "+imc+" \nObesidad.";}
+
+
+
+
+		mostrarResultado(r);
+		}
+
+		function mostrarResultado(r){
+			v= window.prompt(r);
+		}
+		
+
+//funciones: solicitar datos, calcular imc, clasificar imc, mostrar resultados
+		</script>
+
+  </head>
+<body>
+<style> 
+body{
+  background: #FFE3FA;
+}
+h4{
+    font-family:  Verdana;
+    font-size: 35px;
+    color:#E55451;
+
+}
+
+h2{
+   font-family:  Verdana;
+   font-size: 30px;
+}
+.container{
+	padding-top: 7%;
+}
+.panel > .panel-heading {
+    background-image: none;
+    background-color: #D1D0CE;
+    border-color: gray;
+
+}
+.panel> .panel-body{
+	padding-left: 22%;
+	padding-right: 22%;
+}
+
+</style>
+
+
+    <br>
+    <div class="container"> 
+    <div class="row">
+    <div class="col-sm-5 col-sm-offset-3">
+    <div class="panel panel-default slideLeft">
+          <div class="panel-heading">
+            <div class="panel-title"> <h4 class="text-center"> <strong>Calculadora IMC</strong></h4></div>
+
+          </div> <!--end del panel heading-->
+          <div class="panel-body">
+        <form action="" class="form-horizontal">
+        		<div class="col-sm-12">
+				  <div class="form-group">
+				    <label for="peso">Peso:</label>
+				    <input type="text" class="form-control" id="peso" placeholder="kg.">
+				  </div>
+				  <div class="form-group">
+				    <label for="estatura">Estatura:</label>
+				    <input type="text" class="form-control" id="estatura" placeholder="metros">
+				  </div>
+
+				  <button type="button" class="btn btn-lg btn-block btn-danger" id="calcular" value="CalcularIMC" onClick="calcularIMC()">╰(✿˙ᗜ˙)੭━☆ &raquo; </button>
+
+				  </div>
+				</form>
+       
+      
+          </div> <!--End del panel body-->
+          </div> <!--End del panel-default-->
+
+        </div> <!--End col-sm-12-->
+    </div> <!--End row-->
+    </div> <!--End container-->
+
+<br>
+
+
+
+</body>
+    
+</html>
+
+
+
